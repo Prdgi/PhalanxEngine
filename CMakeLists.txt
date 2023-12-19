@@ -12,6 +12,9 @@ project(
 	LANGUAGES CXX
 )
 
+# Testing
+enable_testing()
+
 # Sub-Projects
 add_subdirectory(libraries)
 #add_subdirectory(applications)
