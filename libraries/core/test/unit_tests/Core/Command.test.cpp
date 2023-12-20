@@ -1,8 +1,4 @@
-﻿#include <catch2/catch_test_macros.hpp>
-#include "Core/Command.hpp"
-
-
-#include <catch2/catch_test_macros.hpp>		/// Test Framework
+﻿#include <catch2/catch_test_macros.hpp>		/// Test Framework
 #include "Core/Command.hpp"					/// Class to test
 
 #include <string>
