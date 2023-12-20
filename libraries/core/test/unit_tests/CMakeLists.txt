@@ -12,7 +12,9 @@ target_compile_options( ${TARGET_NAME_CORE_TESTS} PRIVATE /W4 /WX)
 
 # Must have Catch2
 find_package( Catch2 REQUIRED )
-target_link_libraries( ${TARGET_NAME_CORE_TESTS} Catch2::Catch2WithMain )
 include( CTest )
 include( Catch )
 catch_discover_tests( ${TARGET_NAME_CORE_TESTS} )
+
+# Link relevent libraries
+target_link_libraries( ${TARGET_NAME_CORE_TESTS} ${CMAKE_PROJECT_NAME}_Core Catch2::Catch2WithMain )
