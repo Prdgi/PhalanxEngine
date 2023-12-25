@@ -35,7 +35,9 @@ namespace Phalanx::Core {
 
         SECTION("Appending a token to the identifier should increase size correctly") {
             REQUIRE(identifier.AppendToken("Token1") == 1);
+            REQUIRE(identifier.AppendToken("Token2") == 2);
         }
+
     }
 
 }	// namespace Phalanx::Core
