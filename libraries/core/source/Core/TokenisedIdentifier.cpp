@@ -8,6 +8,11 @@ namespace Phalanx::Core {
 	}
 
 	auto TokenisedIdentifier::
+	AtDepth(size_t depth) const -> std::string {
+		return tokens_[depth];	// May throw std::out_of_range
+	}
+
+	auto TokenisedIdentifier::
 	TokenCount() const -> size_t {
 		return tokens_.size();
 	}

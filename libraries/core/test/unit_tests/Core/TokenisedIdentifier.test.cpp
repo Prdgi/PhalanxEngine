@@ -37,7 +37,19 @@ namespace Phalanx::Core {
             REQUIRE(identifier.AppendToken("Token1") == 1);
             REQUIRE(identifier.AppendToken("Token2") == 2);
         }
+    }
 
+    TEST_CASE("") {
+        auto identifier = TokenisedIdentifier{};
+        identifier.AppendToken("Token1");
+        identifier.AppendToken("Token2");
+        identifier.AppendToken("Token3");
+
+        SECTION("Should be able to retrieve a token at a specific depth") {
+            REQUIRE(identifier.AtDepth(0) == "Token1");
+            REQUIRE(identifier.AtDepth(1) == "Token2");
+            REQUIRE(identifier.AtDepth(2) == "Token3");
+        }
     }
 
 }	// namespace Phalanx::Core
