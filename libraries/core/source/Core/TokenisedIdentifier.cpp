@@ -4,7 +4,7 @@ namespace Phalanx::Core {
 	auto TokenisedIdentifier::
 	Append(std::string token) -> size_t {
 		tokens_.push_back(token);
-		return TokenCount();
+		return Count();
 	}
 
 	auto TokenisedIdentifier::
@@ -18,7 +18,7 @@ namespace Phalanx::Core {
 	}
 
 	auto TokenisedIdentifier::
-	TokenCount() const -> size_t {
+	Count() const -> size_t {
 		return tokens_.size();
 	}
 }	// namespace Phalanx::Core

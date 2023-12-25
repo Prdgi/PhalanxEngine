@@ -30,7 +30,7 @@ namespace Phalanx::Core {
         auto identifier = TokenisedIdentifier{};
         
         SECTION("Token count should initialise to zero when using the default constructor") {
-            REQUIRE(identifier.TokenCount() == 0);
+            REQUIRE(identifier.Count() == 0);
         }
 
         SECTION("Appending a token to the identifier should increase size correctly") {

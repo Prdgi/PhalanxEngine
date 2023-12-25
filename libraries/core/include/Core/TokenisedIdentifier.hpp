@@ -9,7 +9,7 @@ namespace Phalanx::Core {
         auto Append(std::string token) -> size_t;
         auto At(size_t depth) const -> std::string;
         auto Remove(size_t) -> void;
-        auto TokenCount() const -> size_t;
+        auto Count() const -> size_t;
     protected:
     private:
         std::vector<std::string> tokens_{};
