@@ -6,6 +6,7 @@
 namespace Phalanx::Core {
     class TokenisedIdentifier {
     public:
+        auto AppendToken(std::string token) -> size_t;
         auto TokenCount() const -> size_t;
     protected:
     private:
