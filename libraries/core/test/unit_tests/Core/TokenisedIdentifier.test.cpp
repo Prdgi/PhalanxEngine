@@ -39,7 +39,7 @@ namespace Phalanx::Core {
         }
     }
 
-    TEST_CASE("") {
+    TEST_CASE("Phalanx::Core::TokenisedIdentifier with 3 tokens") {
         auto identifier = TokenisedIdentifier{};
         identifier.Append("Token1");
         identifier.Append("Token2");
@@ -53,8 +53,19 @@ namespace Phalanx::Core {
 
         SECTION("Should be able to remove a token at a specific depth") {
             identifier.Remove(1);   // Token with value "Token2"
+
             REQUIRE(identifier.At(0) == "Token1");
             REQUIRE(identifier.At(1) == "Token3"); // Index decremented
+        }
+
+        SECTION("Should be able to concatenate the tokens") {
+            auto concatenators = TokenisedIdentifier::Concatenators{};
+            concatenators.prefix = "@";
+            concatenators.infix = "/";
+            concatenators.postfix = ";";
+            std::string expected = "@Token1/Token2/Token3;";
+
+            REQUIRE(identifier.Concatenate(concatenators) == expected);
         }
     }
 

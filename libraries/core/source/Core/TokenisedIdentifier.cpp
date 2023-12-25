@@ -18,6 +18,19 @@ namespace Phalanx::Core {
 	}
 
 	auto TokenisedIdentifier::
+		Concatenate(Concatenators concatenators) const->std::string {
+		auto result = std::string{ concatenators.prefix };
+		for (auto it = tokens_.begin(); it != tokens_.end(); ++it) {
+			if (it != tokens_.begin()) {
+				result += concatenators.infix;
+			}
+			result += *it;
+		}
+		result += concatenators.postfix;
+		return result;
+	}
+
+	auto TokenisedIdentifier::
 	Count() const -> size_t {
 		return tokens_.size();
 	}
