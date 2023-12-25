@@ -46,15 +46,15 @@ namespace Phalanx::Core {
         identifier.AppendToken("Token3");
 
         SECTION("Should be able to retrieve a token at a specific depth") {
-            REQUIRE(identifier.AtDepth(0) == "Token1");
-            REQUIRE(identifier.AtDepth(1) == "Token2");
-            REQUIRE(identifier.AtDepth(2) == "Token3");
+            REQUIRE(identifier.At(0) == "Token1");
+            REQUIRE(identifier.At(1) == "Token2");
+            REQUIRE(identifier.At(2) == "Token3");
         }
 
         SECTION("Should be able to remove a token at a specific depth") {
             identifier.Remove(1);   // Token with value "Token2"
-            REQUIRE(identifier.AtDepth(0) == "Token1");
-            REQUIRE(identifier.AtDepth(1) == "Token3"); // Index decremented
+            REQUIRE(identifier.At(0) == "Token1");
+            REQUIRE(identifier.At(1) == "Token3"); // Index decremented
         }
     }
 

@@ -8,7 +8,7 @@ namespace Phalanx::Core {
 	}
 
 	auto TokenisedIdentifier::
-	AtDepth(size_t depth) const -> std::string {
+	At(size_t depth) const -> std::string {
 		return tokens_[depth];	// May throw std::out_of_range
 	}
 
