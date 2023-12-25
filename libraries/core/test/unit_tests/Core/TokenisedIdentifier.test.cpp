@@ -34,16 +34,16 @@ namespace Phalanx::Core {
         }
 
         SECTION("Appending a token to the identifier should increase size correctly") {
-            REQUIRE(identifier.AppendToken("Token1") == 1);
-            REQUIRE(identifier.AppendToken("Token2") == 2);
+            REQUIRE(identifier.Append("Token1") == 1);
+            REQUIRE(identifier.Append("Token2") == 2);
         }
     }
 
     TEST_CASE("") {
         auto identifier = TokenisedIdentifier{};
-        identifier.AppendToken("Token1");
-        identifier.AppendToken("Token2");
-        identifier.AppendToken("Token3");
+        identifier.Append("Token1");
+        identifier.Append("Token2");
+        identifier.Append("Token3");
 
         SECTION("Should be able to retrieve a token at a specific depth") {
             REQUIRE(identifier.At(0) == "Token1");
