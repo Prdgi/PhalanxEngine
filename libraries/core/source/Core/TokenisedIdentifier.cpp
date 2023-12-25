@@ -13,6 +13,11 @@ namespace Phalanx::Core {
 	}
 
 	auto TokenisedIdentifier::
+	Remove(size_t depth) -> void {
+		tokens_.erase(tokens_.begin() + depth);
+	}
+
+	auto TokenisedIdentifier::
 	TokenCount() const -> size_t {
 		return tokens_.size();
 	}

@@ -50,6 +50,12 @@ namespace Phalanx::Core {
             REQUIRE(identifier.AtDepth(1) == "Token2");
             REQUIRE(identifier.AtDepth(2) == "Token3");
         }
+
+        SECTION("Should be able to remove a token at a specific depth") {
+            identifier.Remove(1);   // Token with value "Token2"
+            REQUIRE(identifier.AtDepth(0) == "Token1");
+            REQUIRE(identifier.AtDepth(1) == "Token3"); // Index decremented
+        }
     }
 
 }	// namespace Phalanx::Core
