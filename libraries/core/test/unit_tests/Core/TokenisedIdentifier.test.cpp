@@ -51,6 +51,10 @@ namespace Phalanx::Core {
             REQUIRE(identifier.At(2) == "Token3");
         }
 
+        SECTION("At() should throw when provided with an out of range depth") {
+            REQUIRE_THROWS(identifier.At(3));
+        }
+
         SECTION("Should be able to remove a token at a specific depth") {
             identifier.Remove(1);   // Token with value "Token2"
 
