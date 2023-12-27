@@ -71,6 +71,12 @@ namespace Phalanx::Core {
 
             REQUIRE(identifier.Concatenate(concatenators) == expected);
         }
+
+        SECTION("Should be able to replace a token at a specific depth") {
+            identifier.Replace(1, "Replaced");   // Token with value "Token2"
+
+            REQUIRE(identifier.At(1) == "Replaced");
+        }
     }
 
 }	// namespace Phalanx::Core

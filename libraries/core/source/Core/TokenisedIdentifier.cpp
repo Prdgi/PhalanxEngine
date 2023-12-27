@@ -1,5 +1,7 @@
 #include "core/TokenisedIdentifier.hpp"
 
+#include <stdexcept>
+
 namespace Phalanx::Core {
 	auto TokenisedIdentifier::
 	Append(std::string token) -> size_t {
@@ -13,8 +15,13 @@ namespace Phalanx::Core {
 	}
 
 	auto TokenisedIdentifier::
-	Remove(size_t depth) -> void {
+		Remove(size_t depth) -> void {
 		tokens_.erase(tokens_.begin() + depth);
+	}
+
+	auto TokenisedIdentifier::
+	Replace(size_t depth, std::string token) -> void {
+		tokens_[depth] = token;
 	}
 
 	auto TokenisedIdentifier::
