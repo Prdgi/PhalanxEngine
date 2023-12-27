@@ -21,6 +21,9 @@ namespace Phalanx::Core {
 
 	auto TokenisedIdentifier::
 	Replace(size_t depth, std::string token) -> void {
+		if (depth >= Count()) {
+			throw std::out_of_range{ "Cannot replace a token that does not exist" };
+		}
 		tokens_[depth] = token;
 	}
 

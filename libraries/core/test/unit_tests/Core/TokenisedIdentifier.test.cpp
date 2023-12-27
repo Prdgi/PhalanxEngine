@@ -77,6 +77,10 @@ namespace Phalanx::Core {
 
             REQUIRE(identifier.At(1) == "Replaced");
         }
+
+        SECTION("Replace() should throw when provided with an out of range depth") {
+            REQUIRE_THROWS(identifier.Replace(3, "Replaced"));
+        }
     }
 
 }	// namespace Phalanx::Core
