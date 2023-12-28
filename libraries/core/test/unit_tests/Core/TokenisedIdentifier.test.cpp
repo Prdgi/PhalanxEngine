@@ -73,7 +73,7 @@ namespace Phalanx::Core {
         }
 
         SECTION("Should be able to replace a token at a specific depth") {
-            identifier.Replace(1, "Replaced");   // Token with value "Token2"
+            identifier.Replace(1, "Replaced");
 
             REQUIRE(identifier.At(1) == "Replaced");
         }
@@ -81,6 +81,15 @@ namespace Phalanx::Core {
         SECTION("Replace() should throw when provided with an out of range depth") {
             REQUIRE_THROWS(identifier.Replace(3, "Replaced"));
         }
+
+        SECTION("Should be able to insert a token at a specific depth") {
+            auto current = identifier.At(1);
+            identifier.Insert(1, "Inserted");
+
+            REQUIRE(identifier.At(1) == "Inserted");    // Was it inserted correctly?
+            REQUIRE(identifier.At(2) == current);       // What used to be at 1, should now be at 2
+        }
+
     }
 
 }	// namespace Phalanx::Core
