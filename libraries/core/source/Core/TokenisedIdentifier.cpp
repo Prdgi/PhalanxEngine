@@ -34,6 +34,9 @@ namespace Phalanx::Core {
 
 	auto TokenisedIdentifier::
 	Insert(size_t depth, std::string token) -> void {
+		if (depth > Count()) {
+			throw std::out_of_range{ "Cannot insert beyond the end" };
+		}
 		tokens_.insert(tokens_.begin() + depth, token);
 	}
 

@@ -90,6 +90,17 @@ namespace Phalanx::Core {
             REQUIRE(identifier.At(2) == current);       // What used to be at 1, should now be at 2
         }
 
+        SECTION("Should be able to insert a token at the end") {
+            auto current = identifier.At(1);
+            identifier.Insert(3, "Inserted");
+
+            REQUIRE(identifier.At(3) == "Inserted");
+        }
+
+        SECTION("Insert() should throw when provided with a depth beyond the end") {
+            REQUIRE_THROWS(identifier.Replace(4, "Replaced"));
+        }
+
     }
 
 }	// namespace Phalanx::Core
