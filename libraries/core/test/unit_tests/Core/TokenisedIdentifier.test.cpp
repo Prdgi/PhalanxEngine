@@ -101,9 +101,9 @@ namespace Phalanx::Core {
             REQUIRE_THROWS(identifier.Replace(4, "Replaced"));
         }
 
-        SECTION("Compare() should return true if the identifiers have equal number of tokens") {
+        SECTION("Compare() should return true if the identifiers are equal") {
             auto copied_identifier = identifier;
-            REQUIRE(copied_identifier.Count() == identifier.Count());
+            REQUIRE(identifier.Compare(copied_identifier));
         }
     }
 
