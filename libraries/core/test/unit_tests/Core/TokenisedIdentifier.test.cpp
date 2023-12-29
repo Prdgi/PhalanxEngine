@@ -103,7 +103,13 @@ namespace Phalanx::Core {
 
         SECTION("Compare() should return true if an identifier is copied then compared with its copy") {
             auto copied_identifier = identifier;
-            REQUIRE(identifier.Compare(copied_identifier));
+            REQUIRE(identifier.Compare(copied_identifier) == true);
+        }
+
+        SECTION("Compare() should return false if an identifier recieves a new token after being copied then compared to the original") {
+            auto copied_identifier = identifier;
+            copied_identifier.Append("NewToken");
+            REQUIRE(identifier.Compare(copied_identifier) == false);
         }
     }
 

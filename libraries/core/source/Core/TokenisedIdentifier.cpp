@@ -16,10 +16,10 @@ namespace Phalanx::Core {
 
 	auto TokenisedIdentifier::
 	Compare(const TokenisedIdentifier& other) const -> bool {
-		if (other.Count() == this->Count()) {
-			return true;
+		if (other.Count() != this->Count()) {
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	auto TokenisedIdentifier::
