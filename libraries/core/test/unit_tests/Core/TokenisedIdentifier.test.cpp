@@ -111,6 +111,12 @@ namespace Phalanx::Core {
             copied_identifier.Append("NewToken");
             REQUIRE(identifier.Compare(copied_identifier) == false);
         }
+
+        SECTION("Compare() should return false if an identifier has a token modified after being copied then compared to the original") {
+            auto copied_identifier = identifier;
+            copied_identifier.Replace(1, "NewToken");
+            REQUIRE(identifier.Compare(copied_identifier) == false);
+        }
     }
 
     

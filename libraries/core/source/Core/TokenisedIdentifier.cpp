@@ -19,6 +19,12 @@ namespace Phalanx::Core {
 		if (other.Count() != this->Count()) {
 			return false;
 		}
+		auto count = this->Count();
+		for (size_t i{ 0 }; i < count; ++i) {
+			if (other.tokens_[i] != this->tokens_[i]) {
+				return false;
+			}
+		}
 		return true;
 	}
 
