@@ -101,7 +101,7 @@ namespace Phalanx::Core {
             REQUIRE_THROWS(identifier.Replace(4, "Replaced"));
         }
 
-        SECTION("Compare() should return true if the identifiers are equal") {
+        SECTION("Compare() should return true if an identifier is copied then compared with its copy") {
             auto copied_identifier = identifier;
             REQUIRE(identifier.Compare(copied_identifier));
         }
