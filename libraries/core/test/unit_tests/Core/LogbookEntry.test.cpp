@@ -28,5 +28,9 @@ namespace Phalanx::Core {
         SECTION("Message() should return an empty string when default constructed") {
             REQUIRE(entry.Message() == std::string{ "" });
         }
+
+        SECTION("Message(arg) should set the entry's message") {
+            entry.Message("This is the message");
+        }
     }
 }	// namespace Phalanx::Core
