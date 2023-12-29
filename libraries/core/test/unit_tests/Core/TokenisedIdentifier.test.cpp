@@ -118,8 +118,4 @@ namespace Phalanx::Core {
             REQUIRE(identifier.Compare(copied_identifier) == false);
         }
     }
-
-    
-        
-
 }	// namespace Phalanx::Core
