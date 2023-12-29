@@ -24,13 +24,16 @@ namespace Phalanx::Core {
 
     TEST_CASE("Phalanx::Core::LogbookEntry with default construction") {
         auto entry = LogbookEntry{};
+        auto message = std::string{ "This is a message" };
 
         SECTION("Message() should return an empty string when default constructed") {
             REQUIRE(entry.Message() == std::string{ "" });
         }
 
-        SECTION("Message(arg) should set the entry's message") {
-            entry.Message("This is the message");
+        SECTION("Message() should return a string previously passed to Message(arg)") {
+            entry.Message(message);
+            REQUIRE(entry.Message() == message);
+
         }
     }
 }	// namespace Phalanx::Core
