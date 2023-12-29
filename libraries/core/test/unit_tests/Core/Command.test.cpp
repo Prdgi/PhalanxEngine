@@ -4,6 +4,8 @@
 #include <string>
 #include <type_traits>
 
+#include "Core/TokenisedIdentifier.hpp"
+
 namespace Phalanx::Core {
 
     TEST_CASE("Phalanx::Core::Command Rule of 0/3/5") {
@@ -27,12 +29,13 @@ namespace Phalanx::Core {
     }
 
     TEST_CASE("Phalanx::Core::Command Can construct with an identifier and body") {
-        auto identifier = "identifier";
+        auto identifier = TokenisedIdentifier{};
+        identifier.Append("Token1");
         auto body = "body";
         auto command = Command{ identifier, body };
 
         SECTION("Can retrieve identifier after construction with identifier and body") {
-            REQUIRE(command.Identifier() == identifier);
+            REQUIRE(identifier.Compare(command.Identifier()) == true);
         }
 
         SECTION("Can retrieve body after construction with identifier and body") {
@@ -41,11 +44,12 @@ namespace Phalanx::Core {
     }
 
     TEST_CASE("Phalanx::Core::Command Can construct with an identifier and without a body") {
-        auto identifier = "identifier";
+        auto identifier = TokenisedIdentifier{};
+        identifier.Append("Token1");
         auto command = Command{ identifier };
 
         SECTION("Can retrieve identifier after construction with only an identifier") {
-            REQUIRE(command.Identifier() == identifier);
+            REQUIRE(identifier.Compare(command.Identifier()) == true);
         }
 
         SECTION("Body should be an empty string after construction with only an identifier") {
