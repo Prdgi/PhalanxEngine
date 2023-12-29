@@ -15,6 +15,14 @@ namespace Phalanx::Core {
 	}
 
 	auto TokenisedIdentifier::
+	Compare(const TokenisedIdentifier& other) const -> bool {
+		if (other.Count() == this->Count()) {
+			return true;
+		}
+		return false;
+	}
+
+	auto TokenisedIdentifier::
 	Concatenate(Concatenators concatenators) const->std::string {
 		auto result = std::string{ concatenators.prefix };
 		for (auto it = tokens_.begin(); it != tokens_.end(); ++it) {
