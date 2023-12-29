@@ -21,4 +21,12 @@ namespace Phalanx::Core {
             REQUIRE(std::is_move_assignable<LogbookEntry>::value == true);
         }
     }
+
+    TEST_CASE("Phalanx::Core::LogbookEntry with default construction") {
+        auto entry = LogbookEntry{};
+
+        SECTION("Message() should return an empty string when default constructed") {
+            REQUIRE(entry.Message() == std::string{ "" });
+        }
+    }
 }	// namespace Phalanx::Core
