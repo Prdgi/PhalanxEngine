@@ -1,9 +1,9 @@
 #pragma once
 
 namespace Phalanx::Core {
-    class Logger {
+    class Logbook {
     public:
     protected:
     private:
-    };	// class Logger
+    };	// class Logbook
 }	// namespace Phalanx::Core
