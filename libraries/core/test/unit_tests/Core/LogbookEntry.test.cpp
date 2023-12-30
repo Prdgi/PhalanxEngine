@@ -25,6 +25,7 @@ namespace Phalanx::Core {
     TEST_CASE("Phalanx::Core::LogbookEntry with default construction") {
         auto entry = LogbookEntry{};
         auto message = std::string{ "This is a message" };
+        auto level = LogbookEntry::Levels::WARNING;
 
         SECTION("Message() should return an empty string when default constructed") {
             REQUIRE(entry.Message() == std::string{ "" });
@@ -38,6 +39,11 @@ namespace Phalanx::Core {
         
         SECTION("Level() should return LogbookEntry::Levels::INFO when default constructed") {
             REQUIRE(entry.Level() == LogbookEntry::Levels::INFO);
+        }
+
+        SECTION("Level() should return a LogbookEntry::Levels previously passed to Level(arg)") {
+            entry.Level(level);
+            REQUIRE(entry.Level() == level);
         }
     }
 }	// namespace Phalanx::Core
