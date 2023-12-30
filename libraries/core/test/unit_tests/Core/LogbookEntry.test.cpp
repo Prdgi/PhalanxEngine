@@ -45,5 +45,13 @@ namespace Phalanx::Core {
             entry.Level(level);
             REQUIRE(entry.Level() == level);
         }
+
+        SECTION("Logbook::Levels should support have INFO, WARNING, ERROR, FATAL values") {
+            entry.Level(LogbookEntry::Levels::INFO);
+            entry.Level(LogbookEntry::Levels::WARNING);
+            entry.Level(LogbookEntry::Levels::ERROR);
+            entry.Level(LogbookEntry::Levels::FATAL);
+        }
+
     }
 }	// namespace Phalanx::Core
