@@ -1,6 +1,13 @@
 #include "Core/LogbookEntry.hpp"
 
 namespace Phalanx::Core {
+
+	auto LogbookEntry::
+	Level() const -> LogbookEntry::Levels {
+		return Levels::INFO;
+	}
+
+
 	auto LogbookEntry::
 	Message() const -> std::string {
 		return message_;

@@ -35,5 +35,9 @@ namespace Phalanx::Core {
             REQUIRE(entry.Message() == message);
 
         }
+        
+        SECTION("Level() should return LogbookEntry::Levels::INFO when default constructed") {
+            REQUIRE(entry.Level() == LogbookEntry::Levels::INFO);
+        }
     }
 }	// namespace Phalanx::Core
