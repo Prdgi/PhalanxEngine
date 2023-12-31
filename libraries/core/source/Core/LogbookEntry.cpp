@@ -30,4 +30,20 @@ namespace Phalanx::Core {
 		return *this;
 	}
 
+	auto LogbookEntry::
+	ToString() const -> std::string {
+		switch (level_) {
+		case Levels::FATAL:
+			return "FATAL: " + message_;
+		case Levels::ERROR:
+			return "ERROR: " + message_;
+		case Levels::WARNING:
+			return "WARNING: " + message_;
+		case Levels::INFO:
+			// Fallthrough
+		default:
+			return "INFO: " + message_;
+		}
+	}
+
 }	// namespace Phalanx::Core

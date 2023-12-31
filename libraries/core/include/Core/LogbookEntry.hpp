@@ -13,6 +13,7 @@ namespace Phalanx::Core {
         auto Level(LogbookEntry::Levels level) -> LogbookEntry&;
         auto Message() const -> std::string;
         auto Message(std::string message) -> LogbookEntry&;
+        auto ToString() const -> std::string;
     protected:
     private:
         std::string message_{ "" };

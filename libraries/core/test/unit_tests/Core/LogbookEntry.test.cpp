@@ -46,7 +46,7 @@ namespace Phalanx::Core {
             REQUIRE(entry.Level() == level);
         }
 
-        SECTION("Logbook::Levels should support have INFO, WARNING, ERROR, FATAL values") {
+        SECTION("Logbook::Levels should support INFO, WARNING, ERROR, FATAL values") {
             entry.Level(LogbookEntry::Levels::INFO);
             entry.Level(LogbookEntry::Levels::WARNING);
             entry.Level(LogbookEntry::Levels::ERROR);
@@ -74,6 +74,10 @@ namespace Phalanx::Core {
 
         SECTION("Level should be stored when passed to constructor") {
             REQUIRE(entry.Level() == level);
+        }
+
+        SECTION("ToString() should return a string of the entry") {
+            REQUIRE(entry.ToString() == "WARNING: " + message);
         }
     }
 }	// namespace Phalanx::Core
