@@ -57,5 +57,4 @@ namespace Phalanx::Core {
 		}
 		return result;
 	}
-
 }	// namespace Phalanx::Core

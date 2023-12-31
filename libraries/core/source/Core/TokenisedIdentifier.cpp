@@ -42,7 +42,7 @@ namespace Phalanx::Core {
 	}
 
 	auto TokenisedIdentifier::
-		Count() const -> size_t {
+	Count() const -> size_t {
 		return tokens_.size();
 	}
 
@@ -55,7 +55,7 @@ namespace Phalanx::Core {
 	}
 
 	auto TokenisedIdentifier::
-		Remove(size_t depth) -> void {
+	Remove(size_t depth) -> void {
 		tokens_.erase(tokens_.begin() + depth);
 	}
 
@@ -66,6 +66,4 @@ namespace Phalanx::Core {
 		}
 		tokens_[depth] = token;
 	}
-
-	
 }	// namespace Phalanx::Core

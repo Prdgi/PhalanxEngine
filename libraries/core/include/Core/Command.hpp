@@ -9,7 +9,9 @@ namespace Phalanx::Core {
     public:
         Command() = delete;
         explicit Command(TokenisedIdentifier identifier, std::string body = std::string{ "" });
+        
         auto Body() const -> const std::string&;
+        
         auto Identifier() const -> const TokenisedIdentifier&;
     protected:
     private:

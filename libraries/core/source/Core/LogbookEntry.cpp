@@ -45,5 +45,4 @@ namespace Phalanx::Core {
 			return "INFO: " + message_;
 		}
 	}
-
 }	// namespace Phalanx::Core
