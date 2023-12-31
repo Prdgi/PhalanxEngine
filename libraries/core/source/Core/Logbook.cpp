@@ -37,4 +37,14 @@ namespace Phalanx::Core {
 	Count() const -> size_t {
 		return entries_.size();
 	}
+
+	auto Logbook::
+	Name() const -> std::string {
+		return name_;
+	}
+
+	auto Logbook::Name(std::string name) -> Logbook& {
+		name_ = name;
+		return *this;
+	}
 }	// namespace Phalanx::Core

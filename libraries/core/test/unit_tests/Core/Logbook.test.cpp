@@ -46,19 +46,31 @@ namespace Phalanx::Core {
 
         SECTION("AddInfo(arg) should be an alias to construct a new LogbookEntry with level INFO and the provided message") {
             logbook.AddInfo(entry_message);
+           
             REQUIRE(logbook.Count() == 1);
         }
         SECTION("AddWarning(arg) should be an alias to construct a new LogbookEntry with level INFO and the provided message") {
             logbook.AddWarning(entry_message);
             REQUIRE(logbook.Count() == 1);
         }
+
         SECTION("AddError(arg) should be an alias to construct a new LogbookEntry with level INFO and the provided message") {
             logbook.AddError(entry_message);
             REQUIRE(logbook.Count() == 1);
         }
+
         SECTION("AddFatal(arg) should be an alias to construct a new LogbookEntry with level INFO and the provided message") {
             logbook.AddFatal(entry_message);
             REQUIRE(logbook.Count() == 1);
+        }
+
+        SECTION("Name() should return 'Untitled Logbook' when default constructed") {
+            REQUIRE(logbook.Name() == "Untitled Logbook");
+        }
+
+        SECTION("Name(arg) should set the name of the logbook") {
+            logbook.Name("Test Logbook");
+            REQUIRE(logbook.Name() == "Test Logbook");
         }
 
     }

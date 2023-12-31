@@ -15,8 +15,11 @@ namespace Phalanx::Core {
         auto AddError(std::string message) -> Logbook&;
         auto AddFatal(std::string message) -> Logbook&;
         auto Count() const -> size_t;
+        auto Name() const -> std::string;
+        auto Name(std::string name) -> Logbook&;
     protected:
     private:
         std::vector<LogbookEntry> entries_{};
+        std::string name_{ "Untitled Logbook" };
     };	// class Logbook
 }	// namespace Phalanx::Core
