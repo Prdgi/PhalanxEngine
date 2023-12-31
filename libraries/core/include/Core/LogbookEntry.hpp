@@ -7,9 +7,9 @@ namespace Phalanx::Core {
     public:
         enum class Levels { INFO, WARNING, ERROR, FATAL };
         auto Level() const -> LogbookEntry::Levels;
-        auto Level(LogbookEntry::Levels level) -> void;
+        auto Level(LogbookEntry::Levels level) -> LogbookEntry&;
         auto Message() const -> std::string;
-        auto Message(std::string message) -> void;
+        auto Message(std::string message) -> LogbookEntry&;
     protected:
     private:
         std::string message_{ "" };

@@ -8,8 +8,9 @@ namespace Phalanx::Core {
 	}
 
 	auto LogbookEntry::
-	Level(LogbookEntry::Levels level) -> void {
+	Level(LogbookEntry::Levels level) -> LogbookEntry& {
 		level_ = level;
+		return *this;
 	}
 
 	auto LogbookEntry::
@@ -18,8 +19,9 @@ namespace Phalanx::Core {
 	}
 
 	auto LogbookEntry::
-	Message(std::string message) -> void {
+	Message(std::string message) -> LogbookEntry& {
 		message_ = message;
+		return *this;
 	}
 
 }	// namespace Phalanx::Core
