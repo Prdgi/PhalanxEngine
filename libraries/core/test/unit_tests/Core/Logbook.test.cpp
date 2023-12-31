@@ -38,5 +38,28 @@ namespace Phalanx::Core {
             logbook.AddEntry(entry);
             REQUIRE(logbook.Count() == 1);
         }
+
+        SECTION("Should be able to add an entry by passing a message and level") {
+            logbook.AddEntry(entry_message, entry_level);
+            REQUIRE(logbook.Count() == 1);
+        }
+
+        SECTION("AddInfo(arg) should be an alias to construct a new LogbookEntry with level INFO and the provided message") {
+            logbook.AddInfo(entry_message);
+            REQUIRE(logbook.Count() == 1);
+        }
+        SECTION("AddWarning(arg) should be an alias to construct a new LogbookEntry with level INFO and the provided message") {
+            logbook.AddWarning(entry_message);
+            REQUIRE(logbook.Count() == 1);
+        }
+        SECTION("AddError(arg) should be an alias to construct a new LogbookEntry with level INFO and the provided message") {
+            logbook.AddError(entry_message);
+            REQUIRE(logbook.Count() == 1);
+        }
+        SECTION("AddFatal(arg) should be an alias to construct a new LogbookEntry with level INFO and the provided message") {
+            logbook.AddFatal(entry_message);
+            REQUIRE(logbook.Count() == 1);
+        }
+
     }
 }	// namespace Phalanx::Core
