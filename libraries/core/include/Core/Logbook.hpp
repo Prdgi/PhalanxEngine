@@ -17,6 +17,7 @@ namespace Phalanx::Core {
         auto Count() const -> size_t;
         auto Name() const -> std::string;
         auto Name(std::string name) -> Logbook&;
+        auto ToString() const -> std::string;
     protected:
     private:
         std::vector<LogbookEntry> entries_{};

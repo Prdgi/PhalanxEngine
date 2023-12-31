@@ -43,8 +43,19 @@ namespace Phalanx::Core {
 		return name_;
 	}
 
-	auto Logbook::Name(std::string name) -> Logbook& {
+	auto Logbook::
+	Name(std::string name) -> Logbook& {
 		name_ = name;
 		return *this;
 	}
+
+	auto Logbook::
+	ToString() const -> std::string {
+		auto result = name_ + ":\n";
+		for (auto& entry : entries_) {
+			result += entry.ToString() + "\n";
+		}
+		return result;
+	}
+
 }	// namespace Phalanx::Core

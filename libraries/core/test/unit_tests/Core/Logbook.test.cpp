@@ -73,5 +73,8 @@ namespace Phalanx::Core {
             REQUIRE(logbook.Name() == "Test Logbook");
         }
 
+        SECTION("ToString() should return name of the Logbook with each entry on a new line") {
+            auto as_string = logbook.ToString();
+        }
     }
 }	// namespace Phalanx::Core
