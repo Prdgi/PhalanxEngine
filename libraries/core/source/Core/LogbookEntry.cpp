@@ -2,6 +2,12 @@
 
 namespace Phalanx::Core {
 
+	LogbookEntry::
+	LogbookEntry(std::string message) : message_{ message } {}
+
+	LogbookEntry::
+		LogbookEntry(std::string message, Levels level) : message_{ message }, level_{ level } {}
+	
 	auto LogbookEntry::
 	Level() const -> LogbookEntry::Levels {
 		return level_;

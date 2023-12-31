@@ -52,6 +52,28 @@ namespace Phalanx::Core {
             entry.Level(LogbookEntry::Levels::ERROR);
             entry.Level(LogbookEntry::Levels::FATAL);
         }
+    }
 
+    TEST_CASE("Phalanx::Core::LogbookEntry constructor accepting a only a message") {
+        auto message = std::string{ "This is a message" };
+        auto entry = LogbookEntry{ message };
+
+        SECTION("Message should be stored when passed to constructor") {
+            REQUIRE(entry.Message() == message);
+        }
+    }
+
+    TEST_CASE("Phalanx::Core::LogbookEntry constructor accepting a message and level") {
+        auto message = std::string{ "This is a message" };
+        auto level = LogbookEntry::Levels::WARNING;
+        auto entry = LogbookEntry{ message, level };
+
+        SECTION("Message should be stored when passed to constructor") {
+            REQUIRE(entry.Message() == message);
+        }
+
+        SECTION("Level should be stored when passed to constructor") {
+            REQUIRE(entry.Level() == level);
+        }
     }
 }	// namespace Phalanx::Core
